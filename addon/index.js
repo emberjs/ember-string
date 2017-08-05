@@ -13,6 +13,18 @@ import {
 // API.
 let STRINGS = {};
 
+export function setStrings(strings) {
+  STRINGS = strings;
+}
+
+export function getStrings() {
+  return STRINGS;
+}
+
+export function get(name) {
+  return STRINGS[name];
+}
+
 const STRING_DASHERIZE_REGEXP = (/[ _]/g);
 
 const STRING_DASHERIZE_CACHE = new Cache(1000, key => decamelize(key).replace(STRING_DASHERIZE_REGEXP, '-'));

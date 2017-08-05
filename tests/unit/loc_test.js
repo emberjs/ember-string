@@ -1,22 +1,28 @@
-import Ember from 'ember'; // ES6TODO Ember.STRINGS
-import { module, test } from 'qunit';
-import { loc } from '@ember/string';
+import {
+  module,
+  test
+} from 'qunit';
+import {
+  loc,
+  getStrings,
+  setStrings
+} from '@ember/string';
 
 let oldString;
 
 module('loc', {
   setup() {
-    oldString = Ember.STRINGS;
-    Ember.STRINGS = {
+    oldString = getStrings();
+    setStrings({
       '_Hello World': 'Bonjour le monde',
       '_Hello %@': 'Bonjour %@',
       '_Hello %@ %@': 'Bonjour %@ %@',
       '_Hello %@# %@#': 'Bonjour %@2 %@1'
-    };
+    });
   },
 
   teardown() {
-    Ember.STRINGS = oldString;
+    setStrings(oldString);
   }
 });
 
