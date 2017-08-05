@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { fmt } from '@ember/string';
+import { fmt } from 'at-ember-string';
 
 module('fmt');
 

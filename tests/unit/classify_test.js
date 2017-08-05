@@ -1,5 +1,5 @@
 import { module, test as qunitTest } from 'qunit';
-import { classify } from '@ember/string';
+import { classify } from 'at-ember-string';
 
 module('classify');
 

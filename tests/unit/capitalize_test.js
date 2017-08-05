@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { capitalize } from '@ember/string';
+import { capitalize } from 'at-ember-string';
 
 module('capitalize');
 

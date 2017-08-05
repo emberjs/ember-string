@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { w } from '@ember/string';
+import { w } from 'at-ember-string';
 
 module('w');
 

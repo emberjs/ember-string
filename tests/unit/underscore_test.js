@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { underscore } from '@ember/string';
+import { underscore } from 'at-ember-string';
 
 module('underscore');
 

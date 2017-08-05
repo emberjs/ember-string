@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { decamelize } from '@ember/string';
+import { decamelize } from 'at-ember-string';
 
 module('decamelize');
 

@@ -6,7 +6,7 @@ import {
   loc,
   getStrings,
   setStrings
-} from '@ember/string';
+} from 'at-ember-string';
 
 let oldString;
 

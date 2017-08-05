@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { camelize } from '@ember/string';
+import { camelize } from 'at-ember-string';
 
 module('camelize');
 

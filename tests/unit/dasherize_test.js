@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { dasherize } from '@ember/string';
+import { dasherize } from 'at-ember-string';
 
 module('dasherize');
 

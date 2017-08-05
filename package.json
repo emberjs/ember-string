@@ -1,5 +1,5 @@
 {
-  "name": "ember-string",
+  "name": "@ember/string",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
@@ -11,14 +11,14 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/emberjs/ember-string",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.7.1"
+    "ember-cli-babel": "~6.7.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
