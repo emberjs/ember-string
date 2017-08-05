@@ -1,5 +1,5 @@
 {
-  "name": "ember-string",
+  "name": "@ember/string",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
@@ -11,19 +11,20 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/emberjs/ember-string",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "test-typings": "node node_modules/typescript/bin/tsc"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.7.1"
+    "ember-cli-babel": "^6.9.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "~2.15.0-beta.2",
+    "ember-cli": "~2.16.2",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.0.0",
     "ember-cli-htmlbars": "^2.0.1",
@@ -32,13 +33,14 @@
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
-    "ember-cli-uglify": "^1.2.0",
+    "ember-cli-uglify": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
-    "ember-source": "~2.15.0-beta.2",
-    "loader.js": "^4.2.3"
+    "ember-source": "~2.16.0",
+    "loader.js": "^4.2.3",
+    "typescript": "^2.5.2"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"

@@ -1,12 +1,12 @@
-# ember-string
+# @ember/string
 
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd ember-string`
-* `npm install`
+* `cd @ember/string`
+* `yarn install`
 
 ## Running
 
@@ -15,7 +15,7 @@ This README outlines the details of collaborating on this Ember addon.
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
+* `yarn test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
