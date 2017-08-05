@@ -17,13 +17,13 @@ const STRING_DASHERIZE_REGEXP = (/[ _]/g);
 
 const STRING_DASHERIZE_CACHE = new Cache(1000, key => decamelize(key).replace(STRING_DASHERIZE_REGEXP, '-'));
 
-const STRING_CAMELIZE_REGEXP_1 = (/(\-|\_|\.|\s)+(.)?/g);
+const STRING_CAMELIZE_REGEXP_1 = (/(-|_|\.|\s)+(.)?/g);
 const STRING_CAMELIZE_REGEXP_2 = (/(^|\/)([A-Z])/g);
 
-const CAMELIZE_CACHE = new Cache(1000, key => key.replace(STRING_CAMELIZE_REGEXP_1, (match, separator, chr) => chr ? chr.toUpperCase() : '').replace(STRING_CAMELIZE_REGEXP_2, (match, separator, chr) => match.toLowerCase()));
+const CAMELIZE_CACHE = new Cache(1000, key => key.replace(STRING_CAMELIZE_REGEXP_1, (match, separator, chr) => chr ? chr.toUpperCase() : '').replace(STRING_CAMELIZE_REGEXP_2, (match/*, separator, chr*/) => match.toLowerCase()));
 
-const STRING_CLASSIFY_REGEXP_1 = (/^(\-|_)+(.)?/);
-const STRING_CLASSIFY_REGEXP_2 = (/(.)(\-|\_|\.|\s)+(.)?/g);
+const STRING_CLASSIFY_REGEXP_1 = (/^(-|_)+(.)?/);
+const STRING_CLASSIFY_REGEXP_2 = (/(.)(-|_|\.|\s)+(.)?/g);
 const STRING_CLASSIFY_REGEXP_3 = (/(^|\/|\.)([a-z])/g);
 
 const CLASSIFY_CACHE = new Cache(1000, str => {
@@ -39,18 +39,18 @@ const CLASSIFY_CACHE = new Cache(1000, str => {
 
   return parts
     .join('/')
-    .replace(STRING_CLASSIFY_REGEXP_3, (match, separator, chr) => match.toUpperCase());
+    .replace(STRING_CLASSIFY_REGEXP_3, (match/*, separator, chr*/) => match.toUpperCase());
 });
 
 const STRING_UNDERSCORE_REGEXP_1 = (/([a-z\d])([A-Z]+)/g);
-const STRING_UNDERSCORE_REGEXP_2 = (/\-|\s+/g);
+const STRING_UNDERSCORE_REGEXP_2 = (/-|\s+/g);
 
 const UNDERSCORE_CACHE = new Cache(1000, str => str.replace(STRING_UNDERSCORE_REGEXP_1, '$1_$2').
   replace(STRING_UNDERSCORE_REGEXP_2, '_').toLowerCase());
 
 const STRING_CAPITALIZE_REGEXP = (/(^|\/)([a-z\u00C0-\u024F])/g);
 
-const CAPITALIZE_CACHE = new Cache(1000, str => str.replace(STRING_CAPITALIZE_REGEXP, (match, separator, chr) => match.toUpperCase()));
+const CAPITALIZE_CACHE = new Cache(1000, str => str.replace(STRING_CAPITALIZE_REGEXP, (match/*, separator, chr*/) => match.toUpperCase()));
 
 const STRING_DECAMELIZE_REGEXP = (/([a-z\d])([A-Z])/g);
 
@@ -98,7 +98,7 @@ function _fmt(str, formats) {
   @public
   @deprecated Use ES6 template strings instead: http://babeljs.io/docs/learn-es2015/#template-strings
 */
-export function fmt(str, formats) {
+export function fmt() {
   deprecate(
     'Ember.String.fmt is deprecated, use ES6 template strings instead.',
     false,
