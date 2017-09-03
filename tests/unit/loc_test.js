@@ -8,11 +8,11 @@ import {
   setStrings
 } from 'at-ember-string';
 
-let oldString;
+let oldStrings;
 
 module('loc', {
-  setup() {
-    oldString = getStrings();
+  beforeEach() {
+    oldStrings = getStrings();
     setStrings({
       '_Hello World': 'Bonjour le monde',
       '_Hello %@': 'Bonjour %@',
@@ -21,8 +21,8 @@ module('loc', {
     });
   },
 
-  teardown() {
-    setStrings(oldString);
+  afterEach() {
+    setStrings(oldStrings);
   }
 });
 
