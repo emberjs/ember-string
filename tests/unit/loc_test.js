@@ -1,6 +1,6 @@
 import {
   module,
-  test
+  test as qunitTest
 } from 'qunit';
 import {
   loc,
@@ -26,23 +26,18 @@ module('loc', {
   }
 });
 
-test('\'_Hello World\'.loc() => \'Bonjour le monde\'', function(assert) {
-  assert.equal(loc('_Hello World'), 'Bonjour le monde');
-});
+function test(given, args, expected, description) {
+  qunitTest(description, function(assert) {
+    assert.equal(loc(given, args), expected);
+  });
+}
 
-test('\'_Hello %@ %@\'.loc(\'John\', \'Doe\') => \'Bonjour John Doe\'', function(assert) {
-  assert.equal(loc('_Hello %@ %@', ['John', 'Doe']), 'Bonjour John Doe');
-});
+test('_Hello World',    [],              'Bonjour le monde', `loc('_Hello World') => 'Bonjour le monde'`);
+test('_Hello %@ %@',    ['John', 'Doe'], 'Bonjour John Doe', `loc('_Hello %@ %@', ['John', 'Doe']) => 'Bonjour John Doe'`);
+test('_Hello %@# %@#',  ['John', 'Doe'], 'Bonjour Doe John', `loc('_Hello %@# %@#', ['John', 'Doe']) => 'Bonjour Doe John'`);
+test('_Not In Strings', [],              '_Not In Strings',  `loc('_Not In Strings') => '_Not In Strings'`);
 
-test('\'_Hello %@# %@#\'.loc(\'John\', \'Doe\') => \'Bonjour Doe John\'', function(assert) {
-  assert.equal(loc('_Hello %@# %@#', ['John', 'Doe']), 'Bonjour Doe John');
-});
-
-test('\'_Not In Strings\'.loc() => \'_Not In Strings\'', function(assert) {
-  assert.equal(loc('_Not In Strings'), '_Not In Strings');
-});
-
-test('works with argument form', function(assert) {
+qunitTest('works with argument form', function(assert) {
   assert.equal(loc('_Hello %@', 'John'), 'Bonjour John');
   assert.equal(loc('_Hello %@ %@', ['John'], 'Doe'), 'Bonjour [John] Doe');
 });

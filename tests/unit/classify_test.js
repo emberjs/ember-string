@@ -1,13 +1,10 @@
-import { module, test as qunitTest } from 'qunit';
+import { module } from 'qunit';
 import { classify } from 'at-ember-string';
+import createTestFunction from '../helpers/create-test-function';
 
 module('classify');
 
-function test(given, expected, description) {
-  qunitTest(description, function(assert) {
-    assert.deepEqual(classify(given), expected);
-  });
-}
+const test = createTestFunction(classify);
 
 test('my favorite items',          'MyFavoriteItems',          'classify normal string');
 test('css-class-name',             'CssClassName',             'classify dasherized string');

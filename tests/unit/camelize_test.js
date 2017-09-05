@@ -1,40 +1,17 @@
-import { module, test } from 'qunit';
+import { module } from 'qunit';
 import { camelize } from 'at-ember-string';
+import createTestFunction from '../helpers/create-test-function';
 
 module('camelize');
 
-test('camelize normal string', function(assert) {
-  assert.deepEqual(camelize('my favorite items'), 'myFavoriteItems');
-});
+const test = createTestFunction(camelize);
 
-test('camelize capitalized string', function(assert) {
-  assert.deepEqual(camelize('I Love Ramen'), 'iLoveRamen');
-});
-
-test('camelize dasherized string', function(assert) {
-  assert.deepEqual(camelize('css-class-name'), 'cssClassName');
-});
-
-test('camelize underscored string', function(assert) {
-  assert.deepEqual(camelize('action_name'), 'actionName');
-});
-
-test('camelize dot notation string', function(assert) {
-  assert.deepEqual(camelize('action.name'), 'actionName');
-});
-
-test('does nothing with camelcased string', function(assert) {
-  assert.deepEqual(camelize('innerHTML'), 'innerHTML');
-});
-
-test('camelize namespaced classified string', function(assert) {
-  assert.deepEqual(camelize('PrivateDocs/OwnerInvoice'), 'privateDocs/ownerInvoice');
-});
-
-test('camelize namespaced underscored string', function(assert) {
-  assert.deepEqual(camelize('private_docs/owner_invoice'), 'privateDocs/ownerInvoice');
-});
-
-test('camelize namespaced dasherized string', function(assert) {
-  assert.deepEqual(camelize('private-docs/owner-invoice'), 'privateDocs/ownerInvoice');
-});
+test('my favorite items',          'myFavoriteItems',          'camelize normal string');
+test('I Love Ramen',               'iLoveRamen',               'camelize capitalized string');
+test('css-class-name',             'cssClassName',             'camelize dasherized string');
+test('action_name',                'actionName',               'camelize underscored string');
+test('action.name',                'actionName',               'camelize dot notation string');
+test('innerHTML',                  'innerHTML',                'does nothing with camelcased string');
+test('PrivateDocs/OwnerInvoice',   'privateDocs/ownerInvoice', 'camelize namespaced classified string');
+test('private_docs/owner_invoice', 'privateDocs/ownerInvoice', 'camelize namespaced underscored string');
+test('private-docs/owner-invoice', 'privateDocs/ownerInvoice', 'camelize namespaced dasherized string');

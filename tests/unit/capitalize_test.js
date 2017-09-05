@@ -1,40 +1,17 @@
-import { module, test } from 'qunit';
+import { module } from 'qunit';
 import { capitalize } from 'at-ember-string';
+import createTestFunction from '../helpers/create-test-function';
 
 module('capitalize');
 
-test('capitalize normal string', function(assert) {
-  assert.deepEqual(capitalize('my favorite items'), 'My favorite items');
-});
+const test = createTestFunction(capitalize);
 
-test('capitalize dasherized string', function(assert) {
-  assert.deepEqual(capitalize('css-class-name'), 'Css-class-name');
-});
-
-test('capitalize underscored string', function(assert) {
-  assert.deepEqual(capitalize('action_name'), 'Action_name');
-});
-
-test('capitalize camelcased string', function(assert) {
-  assert.deepEqual(capitalize('innerHTML'), 'InnerHTML');
-});
-
-test('does nothing with capitalized string', function(assert) {
-  assert.deepEqual(capitalize('Capitalized string'), 'Capitalized string');
-});
-
-test('capitalize namespaced camelized string', function(assert) {
-  assert.deepEqual(capitalize('privateDocs/ownerInvoice'), 'PrivateDocs/OwnerInvoice');
-});
-
-test('capitalize namespaced underscored string', function(assert) {
-  assert.deepEqual(capitalize('private_docs/owner_invoice'), 'Private_docs/Owner_invoice');
-});
-
-test('capitalize namespaced dasherized string', function(assert) {
-  assert.deepEqual(capitalize('private-docs/owner-invoice'), 'Private-docs/Owner-invoice');
-});
-
-test('capitalize string with accent character', function(assert) {
-  assert.deepEqual(capitalize('šabc'), 'Šabc');
-});
+test('my favorite items',          'My favorite items',          'capitalize normal string');
+test('css-class-name',             'Css-class-name',             'capitalize dasherized string');
+test('action_name',                'Action_name',                'capitalize underscored string');
+test('innerHTML',                  'InnerHTML',                  'capitalize camelcased string');
+test('Capitalized string',         'Capitalized string',         'does nothing with capitalized string');
+test('privateDocs/ownerInvoice',   'PrivateDocs/OwnerInvoice',   'capitalize namespaced camelized string');
+test('private_docs/owner_invoice', 'Private_docs/Owner_invoice', 'capitalize namespaced underscored string');
+test('private-docs/owner-invoice', 'Private-docs/Owner-invoice', 'capitalize namespaced dasherized string');
+test('šabc',                       'Šabc',                       'capitalize string with accent character');
