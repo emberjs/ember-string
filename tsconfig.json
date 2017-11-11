@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noEmit": true
+  },
+  "include": [
+    "index.d.ts",
+    "tests/typings/*.ts"
+  ]
+}
