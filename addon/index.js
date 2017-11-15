@@ -3,10 +3,8 @@
 @submodule ember-runtime
 */
 import Cache from './cache';
-import {
-  inspect,
-  deprecate
-} from '@ember/debug';
+import { deprecate } from '@ember/application/deprecations';
+
 
 // STATE within a module is frowned upon, this exists
 // to support Ember.STRINGS but shield ember internals from this legacy global
@@ -21,7 +19,7 @@ export function getStrings() {
   return STRINGS;
 }
 
-export function get(name) {
+export function getString(name) {
   return STRINGS[name];
 }
 
@@ -69,56 +67,13 @@ const STRING_DECAMELIZE_REGEXP = (/([a-z\d])([A-Z])/g);
 const DECAMELIZE_CACHE = new Cache(1000, str => str.replace(STRING_DECAMELIZE_REGEXP, '$1_$2').toLowerCase());
 
 function _fmt(str, formats) {
-  let cachedFormats = formats;
-
-  if (!Array.isArray(cachedFormats) || arguments.length > 2) {
-    cachedFormats = new Array(arguments.length - 1);
-
-    for (let i = 1; i < arguments.length; i++) {
-      cachedFormats[i - 1] = arguments[i];
-    }
-  }
-
   // first, replace any ORDERED replacements.
-  let idx  = 0; // the current index for non-numerical replacements
-  return str.replace(/%@([0-9]+)?/g, (s, argIndex) => {
-    argIndex = (argIndex) ? parseInt(argIndex, 10) - 1 : idx++;
-    s = cachedFormats[argIndex];
-    return (s === null) ? '(null)' : (s === undefined) ? '' : inspect(s);
+  let idx = 0; // the current index for non-numerical replacements
+  return str.replace(/%@([0-9]+)?/g, (_s, argIndex) => {
+    let i = argIndex ? parseInt(argIndex, 10) - 1 : idx++;
+    let r = i < formats.length ? formats[i] : undefined;
+    return typeof r === 'string' ? r : r === null ? '(null)' : r === undefined ? '' : String(r);
   });
-}
-
-/**
-  Apply formatting options to the string. This will look for occurrences
-  of "%@" in your string and substitute them with the arguments you pass into
-  this method. If you want to control the specific order of replacement,
-  you can add a number after the key as well to indicate which argument
-  you want to insert.
-
-  Ordered insertions are most useful when building loc strings where values
-  you need to insert may appear in different orders.
-
-  ```javascript
-  import { fmt } from "@ember/string";
-
-  fmt("Hello %@ %@", 'John', 'Doe');     // "Hello John Doe"
-  fmt("Hello %@2, %@1", 'John', 'Doe');  // "Hello Doe, John"
-  ```
-
-  @method fmt
-  @param {String} str The string to format
-  @param {Array} formats An array of parameters to interpolate into string.
-  @return {String} formatted string
-  @public
-  @deprecated Use ES6 template strings instead: http://babeljs.io/docs/learn-es2015/#template-strings
-*/
-export function fmt() {
-  deprecate(
-    'fmt is deprecated, use ES6 template strings instead.',
-    false,
-    { id: 'ember-string-fmt', until: '2.0.0', url: 'http://babeljs.io/docs/learn-es2015/#template-strings' }
-  );
-  return _fmt(...arguments);
 }
 
 /**
