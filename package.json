@@ -1,7 +1,7 @@
 {
   "name": "@ember/string",
   "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "A set of utilities to transform strings",
   "keywords": [
     "ember-addon"
   ],

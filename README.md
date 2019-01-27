@@ -1,7 +1,7 @@
 @ember/string
 ==============================================================================
 
-[Short description of the addon.]
+A set of utilities to transform strings extracted from the core of Ember.
 
 
 Compatibility
@@ -15,15 +15,29 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install my-addon
+ember install @ember/string
 ```
 
 
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+This package provides the following imports:
 
+```javascript
+import {
+  camelize,
+  capitalize,
+  classify,
+  dasherize,
+  decamelize,
+  underscore
+  w,
+  loc,
+} from 'ember/string'
+```
+
+For more documentation, consult https://emberjs.com/api/ember/release/classes/String.
 
 License
 ------------------------------------------------------------------------------
