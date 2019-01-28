@@ -1,31 +1,8 @@
 import {
   camelize, capitalize, classify, dasherize,
-  decamelize, fmt, getStrings, loc, setStrings,
+  decamelize, getStrings, loc, setStrings,
   underscore, w
 } from "../../index";
-
-function testFmt() {
-  fmt("Hello %@ %@", [ 'John', 'Doe' ]);     // "Hello John Doe"
-  fmt("Hello %@2, %@1", [ 'John', 'Doe' ]);  // "Hello Doe, John"
-  fmt("Hello %@ %@", 'John', 'Doe');     // "Hello John Doe"
-  fmt('data: %@', [{ id: 3 }]);
-  fmt('%@', 'John');
-}
-
-function testLoc() {
-  let oldStrings = getStrings();
-  setStrings({
-    '_Hello World': 'Bonjour le monde',
-    '_Hello %@': 'Bonjour %@',
-    '_Hello %@ %@': 'Bonjour %@ %@',
-    '_Hello %@# %@#': 'Bonjour %@2 %@1'
-  });
-
-  loc("_Hello World");  // 'Bonjour le monde';
-  loc("_Hello %@ %@", ["John", "Smith"]);  // "Bonjour John Smith";
-  loc('_Hello %@', 'John');
-  loc('_Hello %@ %@', ['John'], 'Doe');
-}
 
 function testW() {
   w("alpha beta gamma").forEach(function(key) {

@@ -33,7 +33,6 @@ import {
   decamelize,
   underscore
   w,
-  loc,
 } from '@ember/string'
 ```
 
