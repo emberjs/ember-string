@@ -7,9 +7,11 @@
   For example:
 
   ```javascript
-  Ember.STRINGS = {
+  import { setStrings } from '@ember/string';
+
+  setStrings({
     '_welcome_': 'Bonjour'
-  };
+  });
   ```
 
   ```handlebars
@@ -37,7 +39,7 @@
 import { helper } from '@ember/component/helper';
 import { loc as locUtil } from '@ember/string'
 
-export function loc(params/*, hash*/) {
+export function loc(params: [string, any[]]/*, hash*/) {
   return locUtil(...params);
 }
 
