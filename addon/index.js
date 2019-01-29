@@ -3,25 +3,6 @@
 @submodule ember-runtime
 */
 import Cache from './cache';
-import { deprecate } from '@ember/application/deprecations';
-
-
-// STATE within a module is frowned upon, this exists
-// to support Ember.STRINGS but shield ember internals from this legacy global
-// API.
-let STRINGS = {};
-
-export function setStrings(strings) {
-  STRINGS = strings;
-}
-
-export function getStrings() {
-  return STRINGS;
-}
-
-export function getString(name) {
-  return STRINGS[name];
-}
 
 const STRING_DASHERIZE_REGEXP = (/[ _]/g);
 
@@ -65,61 +46,6 @@ const CAPITALIZE_CACHE = new Cache(1000, str => str.replace(STRING_CAPITALIZE_RE
 const STRING_DECAMELIZE_REGEXP = (/([a-z\d])([A-Z])/g);
 
 const DECAMELIZE_CACHE = new Cache(1000, str => str.replace(STRING_DECAMELIZE_REGEXP, '$1_$2').toLowerCase());
-
-function _fmt(str, formats) {
-  // first, replace any ORDERED replacements.
-  let idx = 0; // the current index for non-numerical replacements
-  return str.replace(/%@([0-9]+)?/g, (_s, argIndex) => {
-    let i = argIndex ? parseInt(argIndex, 10) - 1 : idx++;
-    let r = i < formats.length ? formats[i] : undefined;
-    return typeof r === 'string' ? r : r === null ? '(null)' : r === undefined ? '' : String(r);
-  });
-}
-
-/**
-  Formats the passed string, but first looks up the string in the localized
-  strings hash. This is a convenient way to localize text. See
-  `fmt` for more information on formatting.
-
-  Note that it is traditional but not required to prefix localized string
-  keys with an underscore or other character so you can easily identify
-  localized strings.
-
-  ```javascript
-  import { setStrings, loc } from "@ember/string";
-
-  setStrings({
-    "_Hello World": "Bonjour le monde",
-    "_Hello %@ %@": "Bonjour %@ %@"
-  });
-
-  loc("_Hello World");  // 'Bonjour le monde';
-  loc("_Hello %@ %@", ["John", "Smith"]);  // "Bonjour John Smith";
-  ```
-
-  @method loc
-  @param {String} str The string to format
-  @param {Array} formats Optional array of parameters to interpolate into string.
-  @return {String} formatted string
-  @public
-*/
-export function loc(str, formats) {
-  deprecate(
-    'loc is deprecated, use an internationalization or localization addon instead.',
-    false,
-    {
-      id: 'ember-string-loc',
-      until: '2.0.0',
-      url: 'http://emberjs.com/deprecations/v2.x#toc_ember-string-loc'
-    }
-  );
-  if (!Array.isArray(formats) || arguments.length > 2) {
-    formats = Array.prototype.slice.call(arguments, 1);
-  }
-
-  str = STRINGS[str] || str;
-  return _fmt(str, formats);
-}
 
 /**
   Splits a string into separate units separated by spaces, eliminating any
