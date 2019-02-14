@@ -12,6 +12,6 @@ module('Integration | Helper | loc', function(hooks) {
 
     await render(hbs`{{loc inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent!.trim(), '1234');
   });
 });
