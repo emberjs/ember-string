@@ -3162,7 +3162,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.0.0, ember-cli-babel@^7.2.0, ember-cli-babel@^7.4.1, ember-cli-babel@^7.4.3:
+ember-cli-babel@^7.0.0, ember-cli-babel@^7.2.0, ember-cli-babel@^7.4.1, ember-cli-babel@^7.4.2, ember-cli-babel@^7.4.3:
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.4.3.tgz#1ff35ffd54c6206d72635686f4e5bb1674c9eae5"
   integrity sha512-jTAYz38q+iGXwMVTMQhYVHp//7NGJCvDOqFcn/pzozn+KU34Cvmlyi8MJBucKOA+t+khY8DSFz7jE667U993nA==
@@ -8159,10 +8159,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3.tgz#f1657fc7daa27e1a8930758ace9ae8da31403221"
-  integrity sha512-Y21Xqe54TBVp+VDSNbuDYdGw0BpoR/Q6wo/+35M8PAU0vipahnyduJWirxxdxjsAkS7hue53x2zp8gz7F05u0A==
+typescript@^3.3.3333:
+  version "3.3.3333"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
+  integrity sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
 
 uc.micro@^1.0.1, uc.micro@^1.0.5:
   version "1.0.5"
