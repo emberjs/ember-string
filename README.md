@@ -34,7 +34,7 @@ import {
   underscore
   w,
   loc,
-} from 'ember/string'
+} from '@ember/string'
 ```
 
 For more documentation, consult https://emberjs.com/api/ember/release/classes/String.
