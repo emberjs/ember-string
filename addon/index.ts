@@ -2,7 +2,7 @@
  @module @ember/string
  */
 import Cache from './cache';
-import { deprecate } from '@ember/application/deprecations';
+import { deprecate } from '@ember/debug';
 
 
 // STATE within a module is frowned upon, this exists
