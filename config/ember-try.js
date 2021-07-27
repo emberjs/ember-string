@@ -6,7 +6,6 @@ module.exports = function() {
   return Promise.all([
     getChannelURL('release'),
     getChannelURL('beta'),
-    getChannelURL('canary')
   ]).then((urls) => {
     return {
       scenarios: [
@@ -75,14 +74,6 @@ module.exports = function() {
           npm: {
             devDependencies: {
               'ember-source': urls[1]
-            }
-          }
-        },
-        {
-          name: 'ember-canary',
-          npm: {
-            devDependencies: {
-              'ember-source': urls[2]
             }
           }
         },
