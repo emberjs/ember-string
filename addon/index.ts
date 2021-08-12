@@ -4,7 +4,6 @@
 import Cache from './cache';
 import { deprecate } from '@ember/debug';
 
-
 // STATE within a module is frowned upon, this exists
 // to support Ember.STRINGS but shield ember internals from this legacy global
 // API.
