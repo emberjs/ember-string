@@ -20,6 +20,7 @@ module.exports = {
       files: ['**/*.ts'],
       extends: ['plugin:@typescript-eslint/eslint-recommended'],
       rules: {
+        'no-unused-vars': 'off',
       },
     },
     {
