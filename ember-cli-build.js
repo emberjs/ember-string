@@ -8,13 +8,19 @@ module.exports = function (defaults) {
     'ember-cli-babel': {
       emberModulesAPIPolyfillBlacklist: {
         ['@ember/string']: [
-          'fmt', 'w',
-          'getStrings', 'setStrings',
-          'decamelize', 'dasherize', 'camelize',
-          'classify', 'underscore', 'capitalize',
-        ]
-      }
-    }
+          'fmt',
+          'w',
+          'getStrings',
+          'setStrings',
+          'decamelize',
+          'dasherize',
+          'camelize',
+          'classify',
+          'underscore',
+          'capitalize',
+        ],
+      },
+    },
   });
 
   /*
