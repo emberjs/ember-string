@@ -31,9 +31,8 @@ import {
   classify,
   dasherize,
   decamelize,
-  underscore
+  underscore,
   w,
-  loc,
 } from '@ember/string'
 ```
 
