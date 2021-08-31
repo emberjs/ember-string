@@ -21,7 +21,7 @@ jobs:
           node-version: 12.x
       - run: yarn install --frozen-lockfile
       - run: yarn lint
-      - run: yarn test
+      - run: yarn test:ember
 
   floating-dependencies:
     name: "Floating Dependencies"
@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install --no-lockfile
-      - run: yarn test
+      - run: yarn test:ember
 
   try-scenarios:
     name: "Try: ${{ matrix.ember-try-scenario }}"
