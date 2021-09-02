@@ -1,8 +1,8 @@
+/* eslint-disable no-useless-escape */
 /**
  @module @ember/string
  */
 import Cache from './cache';
-import { deprecate } from '@ember/debug';
 
 // STATE within a module is frowned upon, this exists
 // to support Ember.STRINGS but shield ember internals from this legacy global
@@ -23,29 +23,37 @@ export function getString(name: string): string | undefined {
 
 const STRING_DASHERIZE_REGEXP = /[ _]/g;
 
-const STRING_DASHERIZE_CACHE = new Cache<string, string>(1000, key =>
+const STRING_DASHERIZE_CACHE = new Cache<string, string>(1000, (key) =>
   decamelize(key).replace(STRING_DASHERIZE_REGEXP, '-')
 );
 
 const STRING_CAMELIZE_REGEXP_1 = /(\-|\_|\.|\s)+(.)?/g;
 const STRING_CAMELIZE_REGEXP_2 = /(^|\/)([A-Z])/g;
 
-const CAMELIZE_CACHE = new Cache<string, string>(1000, key =>
+const CAMELIZE_CACHE = new Cache<string, string>(1000, (key) =>
   key
-    .replace(STRING_CAMELIZE_REGEXP_1, (_match, _separator, chr) => (chr ? chr.toUpperCase() : ''))
-    .replace(STRING_CAMELIZE_REGEXP_2, (match /*, separator, chr */) => match.toLowerCase())
+    .replace(STRING_CAMELIZE_REGEXP_1, (_match, _separator, chr) =>
+      chr ? chr.toUpperCase() : ''
+    )
+    .replace(STRING_CAMELIZE_REGEXP_2, (match /*, separator, chr */) =>
+      match.toLowerCase()
+    )
 );
 
 const STRING_CLASSIFY_REGEXP_1 = /^(\-|_)+(.)?/;
 const STRING_CLASSIFY_REGEXP_2 = /(.)(\-|\_|\.|\s)+(.)?/g;
 const STRING_CLASSIFY_REGEXP_3 = /(^|\/|\.)([a-z])/g;
 
-const CLASSIFY_CACHE = new Cache<string, string>(1000, str => {
-  let replace1 = (_match: string, _separator: string, chr: string) =>
+const CLASSIFY_CACHE = new Cache<string, string>(1000, (str) => {
+  const replace1 = (_match: string, _separator: string, chr: string) =>
     chr ? `_${chr.toUpperCase()}` : '';
-  let replace2 = (_match: string, initialChar: string, _separator: string, chr: string) =>
-    initialChar + (chr ? chr.toUpperCase() : '');
-  let parts = str.split('/');
+  const replace2 = (
+    _match: string,
+    initialChar: string,
+    _separator: string,
+    chr: string
+  ) => initialChar + (chr ? chr.toUpperCase() : '');
+  const parts = str.split('/');
 
   for (let i = 0; i < parts.length; i++) {
     parts[i] = parts[i]
@@ -55,13 +63,15 @@ const CLASSIFY_CACHE = new Cache<string, string>(1000, str => {
 
   return parts
     .join('/')
-    .replace(STRING_CLASSIFY_REGEXP_3, (match /*, separator, chr */) => match.toUpperCase());
+    .replace(STRING_CLASSIFY_REGEXP_3, (match /*, separator, chr */) =>
+      match.toUpperCase()
+    );
 });
 
 const STRING_UNDERSCORE_REGEXP_1 = /([a-z\d])([A-Z]+)/g;
 const STRING_UNDERSCORE_REGEXP_2 = /\-|\s+/g;
 
-const UNDERSCORE_CACHE = new Cache<string, string>(1000, str =>
+const UNDERSCORE_CACHE = new Cache<string, string>(1000, (str) =>
   str
     .replace(STRING_UNDERSCORE_REGEXP_1, '$1_$2')
     .replace(STRING_UNDERSCORE_REGEXP_2, '_')
@@ -70,71 +80,17 @@ const UNDERSCORE_CACHE = new Cache<string, string>(1000, str =>
 
 const STRING_CAPITALIZE_REGEXP = /(^|\/)([a-z\u00C0-\u024F])/g;
 
-const CAPITALIZE_CACHE = new Cache<string, string>(1000, str =>
-  str.replace(STRING_CAPITALIZE_REGEXP, (match /*, separator, chr */) => match.toUpperCase())
+const CAPITALIZE_CACHE = new Cache<string, string>(1000, (str) =>
+  str.replace(STRING_CAPITALIZE_REGEXP, (match /*, separator, chr */) =>
+    match.toUpperCase()
+  )
 );
 
 const STRING_DECAMELIZE_REGEXP = /([a-z\d])([A-Z])/g;
 
-const DECAMELIZE_CACHE = new Cache<string, string>(1000, str =>
+const DECAMELIZE_CACHE = new Cache<string, string>(1000, (str) =>
   str.replace(STRING_DECAMELIZE_REGEXP, '$1_$2').toLowerCase()
 );
-
-function _fmt(str: string, formats: any[]) {
-  // first, replace any ORDERED replacements.
-  let idx = 0; // the current index for non-numerical replacements
-  return str.replace(/%@([0-9]+)?/g, (_s: string, argIndex: string) => {
-    let i = argIndex ? parseInt(argIndex, 10) - 1 : idx++;
-    let r = i < formats.length ? formats[i] : undefined;
-    return typeof r === 'string' ? r : r === null ? '(null)' : r === undefined ? '' : String(r);
-  });
-}
-
-/**
-  Formats the passed string, but first looks up the string in the localized
-  strings hash. This is a convenient way to localize text. See
-  `fmt` for more information on formatting.
-
-  Note that it is traditional but not required to prefix localized string
-  keys with an underscore or other character so you can easily identify
-  localized strings.
-
-  ```javascript
-  import { setStrings, loc } from '@ember/string';
-
-  setStrings({
-    '_Hello World': 'Bonjour le monde',
-    '_Hello %@ %@': 'Bonjour %@ %@'
-  });
-
-  loc("_Hello World");  // 'Bonjour le monde';
-  loc("_Hello %@ %@", ["John", "Smith"]);  // "Bonjour John Smith";
-  ```
-
-  @method loc
-  @param {String} str The string to format
-  @param {Array} formats Optional array of parameters to interpolate into string.
-  @return {String} formatted string
-  @public
-*/
-export function loc(str: string, formats: any[]): string {
-  deprecate(
-    'loc is deprecated, use an internationalization or localization addon instead.',
-    false,
-    {
-      id: 'ember-string-loc',
-      until: '2.0.0',
-      // @ts-ignore requires https://github.com/DefinitelyTyped/DefinitelyTyped/pull/32538 to be merged
-      url: 'http://emberjs.com/deprecations/v2.x#toc_ember-string-loc'
-    }
-  );
-  if (!Array.isArray(formats) || arguments.length > 2) {
-    formats = Array.prototype.slice.call(arguments, 1);
-  }
-
-  str = STRINGS[str] || str;
-  return _fmt(str, formats);
-}
 
 /**
   Splits a string into separate units separated by spaces, eliminating any

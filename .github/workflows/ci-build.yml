@@ -21,7 +21,7 @@ jobs:
           node-version: 12.x
       - run: yarn install --frozen-lockfile
       - run: yarn lint
-      - run: yarn test
+      - run: yarn test:ember
 
   floating-dependencies:
     name: "Floating Dependencies"
@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install --no-lockfile
-      - run: yarn test
+      - run: yarn test:ember
 
   try-scenarios:
     name: "Try: ${{ matrix.ember-try-scenario }}"
@@ -43,16 +43,17 @@ jobs:
     needs: test
 
     strategy:
-      fail-fast: true
       matrix:
         ember-try-scenario:
-          - ember-lts-3.8
-          - ember-lts-3.12
-          - ember-lts-3.16
           - ember-lts-3.20
+          - ember-lts-3.24
           - ember-release
           - ember-beta
+          - ember-canary
           - ember-default-with-jquery
+          - ember-classic
+          - embroider-safe
+          - embroider-optimized
 
     steps:
       - uses: actions/checkout@v2

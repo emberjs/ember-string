@@ -11,6 +11,7 @@
 # misc
 /.env*
 /.sass-cache
+/.eslintcache
 /connect.lock
 /coverage/
 /libpeerconnection.log
@@ -22,3 +23,9 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+
+# typescript related output files
+addon/**/*.js
+addon/**/*.d.ts
+package/
+*.tgz

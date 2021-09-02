@@ -10,18 +10,23 @@
 /.editorconfig
 /.ember-cli
 /.env*
+/.eslintcache
 /.eslintignore
 /.eslintrc.js
+/.git/
 /.gitignore
+/.prettierignore
+/.prettierrc.js
 /.template-lintrc.js
 /.travis.yml
 /.watchmanconfig
 /bower.json
-/config/ember-try.js
+/config/
 /CONTRIBUTING.md
 /ember-cli-build.js
 /testem.js
 /tests/
+/yarn-error.log
 /yarn.lock
 .gitkeep
 
@@ -29,3 +34,16 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+
+# typescript
+#
+# avoid publishing .d.ts or .ts files
+# until they have become enforced "public" APIs
+*.ts
+# to enable d.ts consumption remove the next line
+# !*.d.ts
+!addon/**/*.js
+server/
+tsconfig.json
+*.tgz
+DEPRECATIONS.md

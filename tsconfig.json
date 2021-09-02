@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "allowJs": true,
+    "target": "es2019",
+    "allowJs": false,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
@@ -11,45 +11,40 @@
     "strictPropertyInitialization": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noEmitOnError": false,
     "noEmit": true,
+    "declaration": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "baseUrl": ".",
-    "module": "es6",
+    "module": "ES2015",
     "paths": {
       "dummy/tests/*": [
-        "tests/*"
+        "./tests/*"
       ],
       "dummy/*": [
-        "tests/dummy/app/*",
-        "app/*"
+        "./tests/dummy/app/*",
+        "./app/*"
       ],
       "@ember/string": [
-        "addon"
+        "./addon"
       ],
       "@ember/string/*": [
-        "addon/*"
-      ],
-      "@ember/string/test-support": [
-        "addon-test-support"
-      ],
-      "@ember/string/test-support/*": [
-        "addon-test-support/*"
+        "./addon/*"
       ],
       "*": [
-        "types/*"
+        "./types/*",
+        "./node_modules/@types/*"
       ]
     }
   },
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
-    "app/**/*",
-    "addon/**/*",
-    "tests/**/*",
-    "types/**/*",
-    "test-support/**/*",
-    "addon-test-support/**/*"
+    "addon/**/*.ts",
+    "tests/**/*.ts",
+    "types/**/*.ts",
   ]
 }
