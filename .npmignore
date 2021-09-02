@@ -21,7 +21,7 @@
 /.travis.yml
 /.watchmanconfig
 /bower.json
-/config/ember-try.js
+/config/
 /CONTRIBUTING.md
 /ember-cli-build.js
 /testem.js
@@ -42,3 +42,8 @@
 *.ts
 # to enable d.ts consumption remove the next line
 # !*.d.ts
+!addon/**/*.js
+server/
+tsconfig.json
+*.tgz
+DEPRECATIONS.md

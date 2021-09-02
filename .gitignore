@@ -27,3 +27,5 @@
 # typescript related output files
 addon/**/*.js
 addon/**/*.d.ts
+package/
+*.tgz

@@ -27,9 +27,9 @@
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
     "test-typings": "node node_modules/typescript/bin/tsc",
-    "postpack": "rimraf addon-test-support/**/*.js",
+    "postpack": "rimraf addon/**/*.js",
     "postpublish": "npm-run-all clean",
-    "prepublishOnly": "yarn babel --extensions '.ts' --presets @babel/preset-typescript addon --out-dir addon/ --ignore '**/*.d.ts'"
+    "prepack": "yarn babel --extensions '.ts' --presets @babel/preset-typescript addon --out-dir addon/ --ignore '**/*.d.ts'"
   },
   "dependencies": {
     "ember-cli-babel": "^7.26.6"
