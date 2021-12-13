@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 6.x
 
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --frozen-lockfile --ignore-engines
       - run: yarn lint:hbs
       - run: yarn lint:js
       - run: yarn test
