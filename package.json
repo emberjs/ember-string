@@ -50,6 +50,8 @@
     "eslint-plugin-node": "^8.0.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0",
+    "release-it": "^14.11.6",
+    "release-it-lerna-changelog": "^3.1.0",
     "typescript": "^3.2.4"
   },
   "engines": {
@@ -57,5 +59,23 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    },
+    "npm": {
+      "publish": false
+    }
   }
 }
