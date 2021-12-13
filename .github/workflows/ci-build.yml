@@ -52,6 +52,9 @@ jobs:
         ember-try-scenario:
           - ember-lts-2.18
           - ember-lts-3.4
+          - ember-lts-3.20
+          - ember-lts-3.24
+          - ember-lts-3.28
           # disabled due to incompatibility with Ember.js 4
           # - ember-release
           # - ember-beta
@@ -62,7 +65,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 6.x
+          # not running Node.js 6 because of incompatibilities in transitive dependencies
+          node-version: 12.x
 
       - name: install dependencies
         run: yarn install --frozen-lockfile
