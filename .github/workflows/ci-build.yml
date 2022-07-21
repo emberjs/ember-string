@@ -17,12 +17,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
-        with:
-          node-version: 14.x
-      - run: yarn install --frozen-lockfile
-      - run: yarn lint
-      - run: yarn test:ember
+      - uses: ./.github/actions/pnpm
+      - run: pnpm lint
+      - run: pnpm test:ember
 
   floating-dependencies:
     name: "Floating Dependencies"
@@ -30,11 +27,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
-        with:
-          node-version: 14.x
-      - run: yarn install --no-lockfile
-      - run: yarn test:ember
+      - uses: ./.github/actions/pnpm
+      - run: rm pnpm-lock.yaml && pnpm install
+      - run: pnpm test:ember
 
   try-scenarios:
     name: "Try: ${{ matrix.ember-try-scenario }}"
@@ -58,11 +53,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
-        with:
-          node-version: 14.x
-      - name: install dependencies
-        run: yarn install --frozen-lockfile
+      - uses: ./.github/actions/pnpm
       - name: test
         run: node_modules/.bin/ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
 
@@ -73,20 +64,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Install node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: install dependencies
-        run: yarn install --frozen-lockfile
+      - uses: ./.github/actions/pnpm
 
       - name: auto-dist-tag
         run: npx auto-dist-tag@1 --write
 
       - name: publish to npm
-        run: npm publish
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
