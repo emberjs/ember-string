@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.18.9",
     "@babel/preset-typescript": "^7.16.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
