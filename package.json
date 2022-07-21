@@ -118,6 +118,14 @@
       "publish": false
     }
   },
+  "pnpm": {
+    "overrides": {
+      "@octokit/core": "^4.0.0"
+    },
+    "overrides-notes": {
+      "@octokit/core": "release-it -> @octokit/rest -> @octokit/plugin-paginate-rest wants @octokit/core v4, but found 3.6. The problem is that release-it-lerna-changelog + release-it have incompatible peers. This 'fix' relies on the accident that @octokit/core happens to work with all the other deps"
+    }
+  },
   "volta": {
     "node": "14.20.0",
     "yarn": "1.22.11"
