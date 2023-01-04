@@ -1,4 +1,14 @@
 
+
+## v3.0.1 (2023-01-04)
+
+#### :bug: Bug Fix
+* [#367](https://github.com/emberjs/ember-string/pull/367) Add `htmlSafe` and `isHTMLSafe` exported methods. These will error when called, telling the user to import from `@ember/template`. ([@kategengler](https://github.com/kategengler))
+
+#### Committers: 1
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+
+
 ## v3.0.0 (2021-09-03)
 
 #### :boom: Breaking Change
