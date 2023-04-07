@@ -27,7 +27,7 @@
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
     "test-typings": "node node_modules/typescript/bin/tsc",
-    "prepack": "yarn babel --extensions '.ts' --presets @babel/preset-typescript addon --out-dir addon/ --ignore '**/*.d.ts'",
+    "prepack": "pnpm babel --extensions '.ts' --presets @babel/preset-typescript addon --out-dir addon/ --ignore '**/*.d.ts'",
     "postpack": "rimraf addon/**/*.js",
     "postpublish": "npm-run-all clean"
   },
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.18.9",
     "@babel/preset-typescript": "^7.16.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
@@ -69,7 +70,7 @@
     "ember-source": "~3.28.6",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^3.12.0",
-    "ember-try": "^1.4.0",
+    "ember-try": "^2.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-ember": "^10.5.7",
@@ -88,7 +89,7 @@
     "webpack": "^5"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": ">= 16"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -117,8 +118,16 @@
       "publish": false
     }
   },
+  "pnpm": {
+    "overrides": {
+      "@octokit/core": "^4.0.0"
+    },
+    "overrides-notes": {
+      "@octokit/core": "release-it -> @octokit/rest -> @octokit/plugin-paginate-rest wants @octokit/core v4, but found 3.6. The problem is that release-it-lerna-changelog + release-it have incompatible peers. This 'fix' relies on the accident that @octokit/core happens to work with all the other deps"
+    }
+  },
   "volta": {
-    "node": "12.22.3",
-    "yarn": "1.22.11"
+    "node": "16.20.0",
+    "pnpm": "8.1.1"
   }
 }
