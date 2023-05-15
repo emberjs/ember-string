@@ -1,5 +1,17 @@
 
 
+
+## v3.1.0 (2023-05-15)
+
+#### :rocket: Enhancement
+* [#380](https://github.com/emberjs/ember-string/pull/380) Publish types ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* [#381](https://github.com/emberjs/ember-string/pull/381) Expand ember-try scenarios to explicitly cover LTSes 3.28 through 4.12 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## v3.0.1 (2023-01-04)
 
 #### :bug: Bug Fix
