@@ -46,7 +46,7 @@ jobs:
         tsVersion:
           - '~4.9'
           - '~5.0'
-          - '~5.1'
+          - 'beta'
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
