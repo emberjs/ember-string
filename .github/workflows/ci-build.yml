@@ -53,7 +53,7 @@ jobs:
       - name: install dependencies
         run: yarn install --frozen-lockfile
       - name: Swap TS Version
-        run: yarn add --dev typescript@{{ matrix.tsVersion }}
+        run: yarn add --dev typescript@${{ matrix.tsVersion }}
       - name: Check Types
         run: |
           tsc -v
