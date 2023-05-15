@@ -50,6 +50,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
+        with:
+          # TS 5.1 does not support node 12
+          node-version: 14.x
       - name: install dependencies
         run: yarn install --frozen-lockfile
       - name: Swap TS Version
