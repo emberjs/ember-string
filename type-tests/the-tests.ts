@@ -15,7 +15,7 @@ dasherize();
 // @ts-expect-error
 dasherize('', '');
 
-expectTypeOf(dasherize('blue man group')).toBeString()
+expectTypeOf(dasherize('blue man group')).toBeString();
 
 // @ts-expect-error
 camelize();
