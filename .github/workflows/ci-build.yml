@@ -36,6 +36,32 @@ jobs:
       - run: yarn install --no-lockfile
       - run: yarn test:ember
 
+  types-scenarios:
+    name: "Types: ${{ matrix.tsVersion }}"
+    runs-on: ubuntu-latest
+    needs: test
+
+    strategy:
+      matrix:
+        tsVersion:
+          - '~4.9'
+          - '~5.0'
+          - 'beta'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: volta-cli/action@v1
+        with:
+          # TS 5.1 does not support node 12
+          node-version: 14.x
+      - name: install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Swap TS Version
+        run: yarn add --dev typescript@${{ matrix.tsVersion }}
+      - name: Check Types
+        run: |
+          yarn tsc -v
+          yarn test:types
+
   try-scenarios:
     name: "Try: ${{ matrix.ember-try-scenario }}"
 
