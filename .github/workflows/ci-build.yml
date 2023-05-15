@@ -44,9 +44,7 @@ jobs:
     strategy:
       matrix:
         tsVersion:
-          - 4.4
-          - 4.6
-          - 4.8
+          - 4.9
           - 5.0
           - 5.1
     steps:
