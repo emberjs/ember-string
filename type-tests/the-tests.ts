@@ -8,44 +8,53 @@ import {
   w,
 } from '@ember/string';
 
+import { expectTypeOf } from 'expect-type';
+
 // @ts-expect-error
 dasherize();
-dasherize('blue man group'); // $ExpectType string
 // @ts-expect-error
 dasherize('', '');
 
+expectTypeOf(dasherize('blue man group')).toBeString()
+
 // @ts-expect-error
 camelize();
-camelize('blue man group'); // $ExpectType string
 // @ts-expect-error
 camelize('', '');
 
+expectTypeOf(camelize('blue man group')).toBeString();
+
 // @ts-expect-error
 decamelize();
-decamelize('blue man group'); // $ExpectType string
 // @ts-expect-error
 decamelize('', '');
 
+expectTypeOf(decamelize('blue man group')).toBeString();
+
 // @ts-expect-error
 underscore();
-underscore('blue man group'); // $ExpectType string
 // @ts-expect-error
 underscore('', '');
 
+expectTypeOf(underscore('blue man group')).toBeString();
+
 // @ts-expect-error
 w();
-w('blue man group'); // $ExpectType string[]
 // @ts-expect-error
 w('', '');
 
+expectTypeOf(w('blue man group')).toMatchTypeOf<string[]>();
+
 // @ts-expect-error
 classify();
-classify('blue man group'); // $ExpectType string
 // @ts-expect-error
 classify('', '');
 
+expectTypeOf(classify('blue man group')).toBeString();
+
 // @ts-expect-error
 capitalize();
-capitalize('blue man group'); // $ExpectType string
 // @ts-expect-error
 capitalize('', '');
+
+expectTypeOf(capitalize('blue man group')).toBeString();
