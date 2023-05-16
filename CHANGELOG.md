@@ -1,6 +1,15 @@
 
 
 
+
+## v3.1.1 (2023-05-16)
+
+#### :bug: Bug Fix
+* [#382](https://github.com/emberjs/ember-string/pull/382) Do not exclude `.d.ts` in `.npmignore` ([@chriskrycho](https://github.com/chriskrycho))
+
+#### Committers: 1
+- Chris Krycho ([@chriskrycho](https://github.com/chriskrycho))
+
 ## v3.1.0 (2023-05-15)
 
 #### :rocket: Enhancement
