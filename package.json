@@ -33,7 +33,7 @@
     "postpublish": "npm-run-all clean"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.26.6"
+    "ember-cli-babel": "^7.26.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
