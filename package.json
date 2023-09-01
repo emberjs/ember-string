@@ -43,7 +43,7 @@
     "@embroider/test-setup": "^0.47.1",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
-    "@tsconfig/ember": "^2.0.0",
+    "@tsconfig/ember": "^3.0.0",
     "@types/ember": "^3.16.5",
     "@types/ember-qunit": "^3.4.14",
     "@types/ember__test-helpers": "^2.0.2",
