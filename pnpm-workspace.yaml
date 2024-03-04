@@ -1,0 +1,4 @@
+packages:
+  - 'ember-string'
+  - 'test-app'
+  - 'tests'
