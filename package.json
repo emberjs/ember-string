@@ -34,6 +34,7 @@
     "lint:published-types": "pnpm pack; attw; rm *.tgz",
     "start": "vite build --watch",
     "test": "cd tests && pnpm test",
+    "test:types": "tsc --noEmit --emitDeclarationOnly false",
     "prepack": "pnpm build"
   },
   "devDependencies": {
