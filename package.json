@@ -43,9 +43,6 @@
     "test:watch": "cd tests && pnpm test:watch",
     "prepack": "rollup --config"
   },
-  "dependencies": {
-    "decorator-transforms": "^1.0.1"
-  },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.0",
     "@babel/core": "^7.23.6",
