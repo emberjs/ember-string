@@ -25,31 +25,20 @@
     "addon-main.cjs"
   ],
   "scripts": {
-    "build": "concurrently 'npm:build:*'",
-    "build:js": "rollup --config",
-    "build:types": "tsc --declaration",
+    "build": "vite build",
     "lint": "pnpm build; concurrently 'npm:lint:*(!fix)' --names 'lint:'",
     "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "tsc --noEmit --emitDeclarationOnly false",
     "lint:package": "publint",
     "lint:published-types": "pnpm pack; attw; rm *.tgz",
-    "start": "concurrently 'npm:start:*'",
-    "start:js": "rollup --config --watch --no-watch.clearScreen",
-    "start:types": "tsc --declaration --watch",
+    "start": "vite build --watch",
     "test": "cd tests && pnpm test",
-    "test:types": "tsc --noEmit --project ./tests/type-tests/tsconfig.json",
-    "test:watch": "cd tests && pnpm test:watch",
     "prepack": "rollup --config"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.0",
-    "@babel/core": "^7.23.6",
-    "@babel/plugin-transform-typescript": "^7.23.6",
-    "@babel/runtime": "^7.17.0",
     "@embroider/addon-dev": "^4.1.0",
-    "@rollup/plugin-babel": "^6.0.4",
     "@tsconfig/ember": "^3.0.2",
     "@types/ember__debug": "^4.0.7",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -65,13 +54,15 @@
     "publint": "^0.2.7",
     "rollup": "^4.9.1",
     "rollup-plugin-copy": "^3.5.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^5.3.2",
+    "vite-plugin-dts": "^3.9.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
   "volta": {
     "node": "20.11.1",
-    "pnpm": "8.15.4"
+    "pnpm": "9.4.0"
   }
 }
