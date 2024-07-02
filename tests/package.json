@@ -1,0 +1,16 @@
+{
+  "name": "@ember/string-tests",
+  "private": true,
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@ember/string": "workspace:*",
+    "typescript": "4.7.4",
+    "vitest": "^0.18.0"
+  },
+  "volta": {
+    "extends": "../package.json"
+  }
+}

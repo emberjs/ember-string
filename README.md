@@ -7,9 +7,9 @@ A set of utilities to transform strings extracted from the core of Ember.
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.20 or above
-* Ember CLI v3.20 or above
-* Node.js v12 or above
+* Ember.js v3.28 or above
+* Ember CLI v3.28 or above
+* ember-auto-import v2 or above
 
 
 Installation
