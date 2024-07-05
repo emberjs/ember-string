@@ -1,0 +1,21 @@
+{
+  "solution": {
+    "@ember/string": {
+      "impact": "major",
+      "oldVersion": "3.1.1",
+      "newVersion": "4.0.0",
+      "constraints": [
+        {
+          "impact": "major",
+          "reason": "Appears in changelog section :boom: Breaking Change"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./package.json"
+    }
+  },
+  "description": "## Release (2024-07-05)\n\n@ember/string 4.0.0 (major)\n\n#### :boom: Breaking Change\n* `@ember/string`\n  * [#425](https://github.com/emberjs/ember-string/pull/425) (Real™ package™)™ ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :house: Internal\n* `@ember/string`\n  * [#444](https://github.com/emberjs/ember-string/pull/444) Manually tell CI to use pnpm 9 everywhere ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#443](https://github.com/emberjs/ember-string/pull/443) npx create-release-plan-setup@latest --update ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+}
