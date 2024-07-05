@@ -1,5 +1,21 @@
 # Changelog
 
+## Release (2024-07-05)
+
+@ember/string 4.0.0 (major)
+
+#### :boom: Breaking Change
+* `@ember/string`
+  * [#425](https://github.com/emberjs/ember-string/pull/425) (Real™ package™)™ ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* `@ember/string`
+  * [#444](https://github.com/emberjs/ember-string/pull/444) Manually tell CI to use pnpm 9 everywhere ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#443](https://github.com/emberjs/ember-string/pull/443) npx create-release-plan-setup@latest --update ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 
 
 
