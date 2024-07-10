@@ -1,4 +1,4 @@
-@ember/string [![CI Build](https://github.com/emberjs/ember-string/actions/workflows/ci-build.yml/badge.svg)](https://github.com/emberjs/ember-string/actions/workflows/ci-build.yml)
+@ember/string [![CI Build](https://github.com/emberjs/ember-string/actions/workflows/ci.yml/badge.svg)](https://github.com/emberjs/ember-string/actions/workflows/ci.yml)
 ==============================================================================
 
 A set of utilities to transform strings extracted from the core of Ember.
