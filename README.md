@@ -37,7 +37,7 @@ import {
 } from '@ember/string'
 ```
 
-For more documentation, consult https://emberjs.com/api/ember/release/classes/String.
+For more documentation, consult [https://emberjs.com/api/ember/4.9/classes/String](https://api.emberjs.com/ember/4.9/classes/String) or the inline documentation in the [source](https://github.com/emberjs/ember-string/blob/main/src/index.ts).
 
 License
 ------------------------------------------------------------------------------
