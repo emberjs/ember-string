@@ -1,5 +1,21 @@
 # Changelog
 
+## Release (2025-02-19)
+
+@ember/string 4.0.1 (patch)
+
+#### :bug: Bug Fix
+* `@ember/string`
+  * [#448](https://github.com/emberjs/ember-string/pull/448) Cleanup `htmlSafe` and `isHTMLSafe` stubs ([@mkszepp](https://github.com/mkszepp))
+
+#### :house: Internal
+* `@ember/string`
+  * [#446](https://github.com/emberjs/ember-string/pull/446) Fix CI icon in README.md ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 2
+- Markus Sanin ([@mkszepp](https://github.com/mkszepp))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## Release (2024-07-05)
 
 @ember/string 4.0.0 (major)
