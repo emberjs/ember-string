@@ -252,22 +252,3 @@ export function underscore(str: string): string {
 export function capitalize(str: string): string {
   return CAPITALIZE_CACHE.get(str);
 }
-
-/*
-  The following are implemented here to give users adding `@ember/string` to
-  their projects a useful error message. The `ember-source` implementation of
-  `@ember/string` is clobbered by adding this addon, and so the deprecation of
-  the import path is not triggered. This error message is intended to help
-  users discover what they need to change.
-*/
-export function htmlSafe(str: string): void {
-  throw new Error(
-    'htmlSafe is not implemented in the `@ember/string` package. Please import from `@ember/template` instead.',
-  );
-}
-
-export function isHTMLSafe(str: any | null | undefined): void {
-  throw new Error(
-    'isHTMLSafe is not implemented in the `@ember/string` package. Please import from `@ember/template` instead.',
-  );
-}
