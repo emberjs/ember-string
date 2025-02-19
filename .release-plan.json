@@ -2,20 +2,16 @@
   "solution": {
     "@ember/string": {
       "impact": "patch",
-      "oldVersion": "4.0.0",
-      "newVersion": "4.0.1",
+      "oldVersion": "4.0.1",
+      "newVersion": "4.0.2",
       "constraints": [
         {
           "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
+          "reason": "Appears in changelog section :memo: Documentation"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2025-02-19)\n\n@ember/string 4.0.1 (patch)\n\n#### :bug: Bug Fix\n* `@ember/string`\n  * [#448](https://github.com/emberjs/ember-string/pull/448) Remove `htmlSafe` and `isHTMLSafe` ([@mkszepp](https://github.com/mkszepp))\n\n#### :house: Internal\n* `@ember/string`\n  * [#446](https://github.com/emberjs/ember-string/pull/446) Fix CI icon in README.md ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 2\n- Markus Sanin ([@mkszepp](https://github.com/mkszepp))\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
+  "description": "## Release (2025-02-19)\n\n@ember/string 4.0.2 (patch)\n\n#### :memo: Documentation\n* `@ember/string`\n  * [#451](https://github.com/emberjs/ember-string/pull/451) Update README.md ([@kategengler](https://github.com/kategengler))\n\n#### Committers: 1\n- Katie Gengler ([@kategengler](https://github.com/kategengler))\n"
 }

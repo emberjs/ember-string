@@ -2,6 +2,17 @@
 
 ## Release (2025-02-19)
 
+@ember/string 4.0.2 (patch)
+
+#### :memo: Documentation
+* `@ember/string`
+  * [#451](https://github.com/emberjs/ember-string/pull/451) Update README.md ([@kategengler](https://github.com/kategengler))
+
+#### Committers: 1
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+
+## Release (2025-02-19)
+
 @ember/string 4.0.1 (patch)
 
 #### :bug: Bug Fix

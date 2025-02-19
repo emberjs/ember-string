@@ -1,6 +1,6 @@
 {
   "name": "@ember/string",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "A set of utilities to transform strings",
   "repository": "https://github.com/emberjs/ember-string",
   "license": "MIT",
