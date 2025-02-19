@@ -38,7 +38,7 @@
     "test:types": "tsc --noEmit --emitDeclarationOnly false"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.15.0",
+    "@arethetypeswrong/cli": "^0.17.3",
     "@embroider/addon-dev": "^4.1.0",
     "@tsconfig/ember": "^3.0.2",
     "@types/ember__debug": "^4.0.7",
