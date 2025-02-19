@@ -6,7 +6,7 @@
 
 #### :bug: Bug Fix
 * `@ember/string`
-  * [#448](https://github.com/emberjs/ember-string/pull/448) Remove `htmlSafe` and `isHTMLSafe` ([@mkszepp](https://github.com/mkszepp))
+  * [#448](https://github.com/emberjs/ember-string/pull/448) Cleanup `htmlSafe` and `isHTMLSafe` stubs ([@mkszepp](https://github.com/mkszepp))
 
 #### :house: Internal
 * `@ember/string`
