@@ -4,6 +4,7 @@
   "description": "A set of utilities to transform strings",
   "repository": "https://github.com/emberjs/ember-string",
   "license": "MIT",
+  "keywords": ["ember-addon"],
   "author": "",
   "type": "module",
   "exports": {
@@ -62,6 +63,7 @@
     "node": "20.11.1",
     "pnpm": "9.4.0"
   },
+  "ember-addon": { "version": 2, "type": "addon", "main": "addon-main.cjs", "app-js": {} },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   }
